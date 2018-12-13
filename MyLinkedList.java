@@ -9,7 +9,7 @@ public class MyLinkedList{
   public int size(){
     return size;
   }
-  public boolean add(int value){
+  public boolean add(Integer value){
     Node newend = new Node(value, end, null);
     end.setNext(newend);
     end = newend;
@@ -20,15 +20,15 @@ public class MyLinkedList{
     String ans="[";
     Node current=start;
     for(int i=0;i<size-1;i++){
-      ans+=current.get()+", ";
+      ans+=current.getData()+", ";
       current = current.next();
     }
-    ans+=current.get();
+    ans+=current.getData();
     return ans+"]";
   }
 }
 class Node{
-  private int data;
+  private Integer data;
   private Node prev, next;
   public Node(int _data, Node _prev, Node _next){
     data = _data;
@@ -39,8 +39,13 @@ class Node{
       next = _next;
     }
   }
-  public int get(){
+  public Integer getData(){
     return data;
+  }
+  public Integer setData(Integer i){
+    Integer old = data;
+    data = i;
+    return old;
   }
   public Node next(){
     return next;
@@ -53,5 +58,8 @@ class Node{
   }
   public void setNext(Node _next){
     next = _next;
+  }
+  public String toString(){
+    return ""+data;
   }
 }
