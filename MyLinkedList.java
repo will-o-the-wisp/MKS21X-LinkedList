@@ -2,7 +2,8 @@ public class MyLinkedList{
   private int size;
   private Node start,end;
   public MyLinkedList(){
-
+    size = 0;
+    start = new Node(0,null,null);
   }
   public int size(){
     return size;
@@ -19,8 +20,12 @@ class Node{
   private Node prev, next;
   public Node(int _data, Node _prev, Node _next){
     data = _data;
-    prev = _prev;
-    next = _next;
+    if(prev!=null){
+      prev = _prev;
+    }
+    if(next!=null){
+      next = _next;
+    }
   }
   public int get(){
     return data;
@@ -30,5 +35,11 @@ class Node{
   }
   public Node prev(){
     return prev;
+  }
+  public void setPrev(Node _prev){
+    prev = _prev;
+  }
+  public void setNext(Node _next){
+    next = _next;
   }
 }
