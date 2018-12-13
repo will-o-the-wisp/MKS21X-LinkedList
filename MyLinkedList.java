@@ -33,6 +33,12 @@ public class MyLinkedList{
     }
     return current;
   }
+  public Integer get(int index){
+    return getNthNode(index).getData();
+  }
+  public Integer set(int index, Integer value){
+    return getNthNode(index).setData(value);
+  }
 }
 class Node{
   private Integer data;
