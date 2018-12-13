@@ -1,30 +1,37 @@
 public class MyLinkedList{
-  private int size;
+  private int length;
   private Node start,end;
   public MyLinkedList(){
-    size = 1;
+    length = 1;
     start = new Node(0,null,null);
     end = start;
   }
-  public int size(){
-    return size;
+  public int length(){
+    return length;
   }
   public boolean add(Integer value){
     Node newend = new Node(value, end, null);
     end.setNext(newend);
     end = newend;
-    size++;
+    length++;
     return true;
   }
   public String toString(){
     String ans="[";
     Node current=start;
-    for(int i=0;i<size-1;i++){
+    for(int i=0;i<length-1;i++){
       ans+=current.getData()+", ";
       current = current.next();
     }
     ans+=current.getData();
     return ans+"]";
+  }
+  private Node getNthNode(int n){
+    Node current = start;
+    for(int i=0;i<n;i++){
+      current = current.next();
+    }
+    return current;
   }
 }
 class Node{
