@@ -2,19 +2,29 @@ public class MyLinkedList{
   private int size;
   private Node start,end;
   public MyLinkedList(){
-    size = 0;
+    size = 1;
     start = new Node(0,null,null);
-    end = new Node(0,start,null);
-    start.setNext(end);
+    end = start;
   }
   public int size(){
     return size;
   }
   public boolean add(int value){
+    Node newend = new Node(value, end, null);
+    end.setNext(newend);
+    end = newend;
+    size++;
     return true;
   }
   public String toString(){
-    return "";
+    String ans="[";
+    Node current=start;
+    for(int i=0;i<size-1;i++){
+      ans+=current.get()+", ";
+      current = current.next();
+    }
+    ans+=current.get();
+    return ans+"]";
   }
 }
 class Node{
