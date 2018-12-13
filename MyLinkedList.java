@@ -4,6 +4,8 @@ public class MyLinkedList{
   public MyLinkedList(){
     size = 0;
     start = new Node(0,null,null);
+    end = new Node(0,start,null);
+    start.setNext(end);
   }
   public int size(){
     return size;
