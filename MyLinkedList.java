@@ -98,6 +98,9 @@ public class MyLinkedList{
         start.setPrev(newstart);
         start = newstart;
       }
+      else{
+        //do this
+      }
     }
   }
   public Integer remove(int index){
