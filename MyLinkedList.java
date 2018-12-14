@@ -6,7 +6,7 @@ public class MyLinkedList{
     start = new Node(0,null,null);
     end = start;
   }
-  public int length(){
+  public int size(){
     return length;
   }
   public boolean add(Integer value){
@@ -38,6 +38,28 @@ public class MyLinkedList{
   }
   public Integer set(int index, Integer value){
     return getNthNode(index).setData(value);
+  }
+  public boolean contains(Integer value){
+    Node current = start;
+    for(int i=0;i<length;i++){
+      if(current.getData()==value){
+        return true;
+      }
+      current=current.next();
+    }
+    return false;
+  }
+  public int indexOf(Integer value){
+    int ans=0;
+    Node current=start;
+    for(int i=0;i<length;i++){
+      if(current.getData()==value){
+        return ans;
+      }
+      current=current.next();
+      ans++;
+    }
+    return -1;
   }
 }
 class Node{

@@ -5,5 +5,12 @@ public class Driver{
     a.add(5);
     a.add(7);
     System.out.println(a);
+    System.out.println(a.contains(3));
+    System.out.println(a.contains(7));
+    System.out.println(a.indexOf(7));
+    a.add(7);
+    a.add(7);
+    a.set(1,100);
+    System.out.println(a);
   }
 }
