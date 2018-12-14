@@ -45,7 +45,7 @@ public class MyLinkedList{
       throw new IndexOutOfBoundsException("Index out of range");
     }
     else{
-    return getNthNode(index).getData();
+      return getNthNode(index).getData();
     }
   }
   public Integer set(int index, Integer value){
@@ -83,7 +83,21 @@ public class MyLinkedList{
       throw new IndexOutOfBoundsException("Index out of bounds");
     }
     else{
-
+      if(size()==0){
+        Node n = new Node(value, null, null);
+        start = n;
+        end = n;
+      }
+      else if(index == size()){
+        Node newend = new Node(value, end, null);
+        end.setNext(newend);
+        end = newend;
+      }
+      else if(index == 0){
+        Node newstart = new Node(value, null, start);
+        start.setPrev(newstart);
+        start = newstart;
+      }
     }
   }
   public Integer remove(int index){
@@ -93,6 +107,9 @@ public class MyLinkedList{
     else{
       return 0;
     }
+  }
+  public boolean remove(Integer value){
+    return true;
   }
 }
 class Node{
