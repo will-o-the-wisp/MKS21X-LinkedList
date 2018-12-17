@@ -70,7 +70,7 @@ public class MyLinkedList{
     int ans=0;
     Node current=start;
     for(int i=0;i<length;i++){
-      if(current.getData()==value){
+      if((int)(current.getData())==(int)value){
         return ans;
       }
       current=current.next();
@@ -113,7 +113,7 @@ public class MyLinkedList{
     }
     else{
       int ans;
-      if(index == size()){
+      if(index == size()-1){
         ans=end.getData();
         end=end.prev();
         end.setNext(null);
@@ -134,7 +134,14 @@ public class MyLinkedList{
     }
   }
   public boolean remove(Integer value){
-    return true;
+    int i = indexOf(value);
+    if(i==-1){
+      return false;
+    }
+    else{
+      remove(i);
+      return true;
+    }
   }
 }
 class Node{
