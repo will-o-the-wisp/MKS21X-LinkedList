@@ -11,6 +11,7 @@ public class Driver{
     a.add(7);
     a.add(7);
     a.set(1,100);
+    a.add(0,20);
     System.out.println(a);
   }
 }

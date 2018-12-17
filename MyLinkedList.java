@@ -99,8 +99,12 @@ public class MyLinkedList{
         start = newstart;
       }
       else{
-        //do this
+        Node prev = getNthNode(index-1);
+        Node n = new Node(value, prev, prev.next());
+        prev.setNext(n);
+        n.next().setPrev(n);
       }
+      length++;
     }
   }
   public Integer remove(int index){
@@ -108,7 +112,25 @@ public class MyLinkedList{
       throw new IndexOutOfBoundsException("index out of bounds");
     }
     else{
-      return 0;
+      int ans;
+      if(index == size()){
+        ans=end.getData();
+        end=end.prev();
+        end.setNext(null);
+      }
+      else if(index == 0){
+        ans=start.getData();
+        start=start.next();
+        start.setPrev(null);
+      }
+      else{
+        Node n = getNthNode(index);
+        ans=n.getData();
+        n.prev().setNext(n.next());
+        n.next().setPrev(n.prev());
+      }
+      length--;
+      return ans;
     }
   }
   public boolean remove(Integer value){
@@ -120,12 +142,8 @@ class Node{
   private Node prev, next;
   public Node(int _data, Node _prev, Node _next){
     data = _data;
-    if(prev!=null){
-      prev = _prev;
-    }
-    if(next!=null){
-      next = _next;
-    }
+    prev = _prev;
+    next = _next;
   }
   public Integer getData(){
     return data;
