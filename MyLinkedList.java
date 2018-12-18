@@ -33,6 +33,18 @@ public class MyLinkedList{
     }
     return ans+"]";
   }
+  public String reverse(){
+    String ans="[";
+    if(size()>0){
+      Node current=end;
+      for(int i=length;i>1;i--){
+        ans+=current.getData()+", ";
+        current = current.prev();
+      }
+      ans+=current.getData();
+    }
+    return ans+"]";
+  }
   private Node getNthNode(int n){
     Node current = start;
     for(int i=0;i<n;i++){
@@ -143,7 +155,17 @@ public class MyLinkedList{
       return true;
     }
   }
+  public void extend(MyLinkedList other){
+    end.setNext(other.start);
+    other.start.setPrev(end);
+    end=other.end;
+    other.start=null;
+    other.end=null;
+    length=length+other.length;
+    other.length=0;
+  }
 }
+
 class Node{
   private Integer data;
   private Node prev, next;

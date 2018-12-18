@@ -8,6 +8,10 @@ public class Driver3 {
         System.out.println("##New Instance Test:##");
         System.out.println("######################");
         MyLinkedList list = new MyLinkedList();
+        MyLinkedList list2 = new MyLinkedList();
+        list2.add(5);
+        list2.add(7);
+        list2.add(100);
         System.out.println(list);
         System.out.println("This should print: \"[]\"\n");
 
@@ -160,5 +164,10 @@ public class Driver3 {
         list.add(0, new Integer(666));
         System.out.println(list);
         System.out.println("This should print: [666, 1, 2, 3, 4, 5, 6, 7, 8]\n");
+        System.out.println(list.reverse());
+        list.extend(list2);
+        System.out.println(list);
+        System.out.println(list.reverse());
+        System.out.println(list2);
     }
 }
